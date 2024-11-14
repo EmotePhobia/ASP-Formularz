@@ -1,0 +1,50 @@
+﻿@model FormService.Models.Dane
+
+
+@{
+    ViewData["Title"] = "Formularz";
+}
+@using (Html.BeginForm("Form","Home", FormMethod.Post))
+{
+    @Html.ValidationSummary(false, "", new { @class = "text-danger"})
+    <p>Twoje imie: @Html.TextBoxFor(a => a.Imie)</p>
+    <p>Twoje Nazwisko: @Html.TextBoxFor(a => a.Nazwisko)</p>
+    <p>Twoj Email: @Html.TextBoxFor(a => a.Email)</p>
+    <p>Hasło: @Html.PasswordFor(a => a.Haslo)</p>
+    <p>Potwierdź Hasło: @Html.PasswordFor(a => a.Haslo2)</p>
+    <p>Podaj numer telefonu: @Html.TextBoxFor(a => a.NrTel)</p>
+    <p>Wiek: @Html.TextBoxFor(a => a.Wiek)</p>
+    <p>Miasto: @Html.DropDownListFor( a => a.Kategoria, new SelectList(Enum.GetValues(typeof(Dane.Kategorie))))</p>
+    <input type="submit"/>
+    <input asp-action="ClearForm" type="submit" value="Wyczyść" />
+
+}
+@* 
+    
+
+
+
+<form asp-action="Form" method="post">
+    <div asp-validation-summary="All"></div>
+    <div>
+        <label asp-for="Imie">Twoje imie</label>
+        <input asp-for="Imie" />
+    </div>
+    <div>
+        <label asp-for="Email">Email</label>
+        <input asp-for="Email" />
+    </div>
+    <div>
+        <label asp-for="Temat">Temat</label>
+        <input asp-for="Temat" />
+    </div>
+    <div>
+        <label asp-for="Tresc">Tresc</label>
+        <textarea asp-for="Tresc" /></textarea>
+    </div>
+    <div>
+        <input type="submit" />
+    </div>
+
+</form>
+ *@
